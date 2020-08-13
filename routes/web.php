@@ -23,7 +23,9 @@ Route::get('/solution-query', function () {
 
 Route::post('/solution-query', 'SolutionQueryController@create');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('home');
+Route::post('/send-otp', 'SolutionQueryController@sendOtp');
+Route::get('/verify-otp', 'SolutionQueryController@verifyOtp');
 Route::middleware('auth')->get('/show-solution-queries', 'SolutionQueryController@index')->name('showSolutionQueries');

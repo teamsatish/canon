@@ -2,6 +2,9 @@
 
 return [
 
+    'neutrinoapiUserId' => env('neutrinoapiUserId', ''),
+    'neutrinoapiApiKey' => env('neutrinoapiApiKey', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

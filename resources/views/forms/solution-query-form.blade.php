@@ -31,10 +31,13 @@
   
   <div class="form-group">
     <label for="mobileNumber">Mobile Number</label>
-    <input id="mobileNumber" name="mobileNumber" value="{{old('mobileNumber', '8130627613')}}" type="mobileNumber" class="@error('mobileNumber') is-invalid @enderror form-control">
+    <input id="mobileNumber" name="mobileNumber" value="{{old('mobileNumber', '8130626713')}}" type="mobileNumber" class="@error('mobileNumber') is-invalid @enderror form-control">
     @error('mobileNumber')
       <div class="invalid-feedback">{{ $message }}</div>
     @enderror
+  </div>
+  <div class="form-group">
+    <button type="button" disabled id="sendOtp" class="btn btn-success">Send OTP</button>
   </div>
   
   <div class="form-group">
@@ -82,4 +85,5 @@
     Submit
   </button>
 
+<script src="{{ asset('js/otp.js')}}"></script>
 </form>
