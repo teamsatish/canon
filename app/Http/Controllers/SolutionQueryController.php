@@ -88,7 +88,7 @@ class SolutionQueryController extends Controller
     
     $otp = $response['security-code'];
 
-    return $response;
+    return response(['message' => 'Otp sent successfully!']);
   }
   
   public function verifyOtp() {
