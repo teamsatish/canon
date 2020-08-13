@@ -17,11 +17,6 @@ class SolutionQueryController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
   public function create(Request $request) {
-    $allSolutions = SolutionQuery::all();
-
-    // foreach ($allSolutions as $flight) {
-    //     echo $flight->name;
-    // }
 
     $validatedData = $request->validate([
         'name' => 'required|max:255',
