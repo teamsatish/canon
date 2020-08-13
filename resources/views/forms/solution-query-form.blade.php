@@ -2,7 +2,7 @@
 
 @include('forms.shared-errors')
 
-<form method="POST" action="/solution-query">
+<form method="POST" action="/">
   @csrf
 
   <div class="form-group">

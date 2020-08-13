@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return redirect('/');
+// });
 
-Route::get('/solution-query', function () {
+Route::get('/', function () {
     return view('pages.solution-query');
 });
 
-Route::post('/solution-query', 'SolutionQueryController@create');
+Route::post('/', 'SolutionQueryController@create');
 
 Auth::routes(['register' => false]);
 
