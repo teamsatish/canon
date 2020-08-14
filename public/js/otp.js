@@ -14,7 +14,7 @@ window.onload = function() {
   sendOtpButton.onclick = function () {
     const mobileNumber = mobileNumberInput.value;
     sendOtpButton.textContent = 'Sending OTP...';
-    const url = 'http://3.6.178.94/canon/public/send-otp';
+    const url = 'http://3.6.178.94/send-otp';
     // const url = 'http://localhost:8000/send-otp';
     postData(url, { mobileNumber: `+91${mobileNumber}` })
       .then(data => {
