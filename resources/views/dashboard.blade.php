@@ -19,8 +19,8 @@
         <thead>
           <tr>
             <th>Business Category</th>
-            <th>Business</th>
-            <th>Business Detail</th>
+            <th>Nature of business</th>
+            <th>Business Details</th>
             <th>Name</th>
             <th>Email</th>
             <th>Company Name</th>
@@ -28,15 +28,14 @@
             <th>Pincode</th>
             <th>State</th>
             <th>Query</th>
-            <th>Query raised on</th>
+            <th>Query date</th>
           </tr>
         </thead>
         <tfoot>
           <tr>
             <th>Business Category</th>
-            <th>Business</th>
-            <th>Business Detail</th>
-            <th>Name</th>
+            <th>Nature of business</th>
+            <th>Business Details</th>
             <th>Name</th>
             <th>Email</th>
             <th>Company Name</th>
@@ -44,7 +43,7 @@
             <th>Pincode</th>
             <th>State</th>
             <th>Query</th>
-            <th>Query raised on</th>
+            <th>Query date</th>
           </tr>
         </tfoot>
         <tbody>

@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'SolutionQueryController@index');
 Route::post('/', 'SolutionQueryController@create');
+Route::get('/thankyou', 'SolutionQueryController@thankyou');
 
 Auth::routes(['register' => false]);
 

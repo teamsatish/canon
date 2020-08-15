@@ -17,19 +17,19 @@ class SolutionQueryController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
   const BUSINESS_NATURE = [
-    'Production/Post Production House' => 'Under OTT',
+    'Production/Post Production House' => 'OTT',
     'YouTube Content Studio' => 'YouTube',
-    'Rental House' => 'Under OTT',
+    'Rental House' => 'OTT',
     'Video Content Creator' => 'YouTube',
-    'DoP/Cinematographer/Filmmaker' => 'Under OTT',
+    'DoP/Cinematographer/Filmmaker' => 'OTT',
     'Print/Electronic/Digital Media' => 'Media',
-    'Film & Television Institute' => 'Under OTT',
+    'Film & Television Institute' => 'OTT',
     'Mass Communication Institute' => 'Education Mass com',
     'Visual FX/Animation/Gaming Studio' => 'VFX',
     'Fine Arts Institute' => 'Education Mass com',
     '3D/Animation/VFX Institute' => 'VFX',
     'Photography Institute' => 'Photo schools',
-    'Other Kind Of Business' => 'Other',
+    'Other Kind Of Business' => 'Others',
   ];
 
   public function create(Request $request) {
@@ -79,6 +79,10 @@ class SolutionQueryController extends Controller
 
     $request->session()->forget('error');
     $request->session()->flash('message', 'Query submitted succesfully!');
+    return redirect('/thankyou');
+  }
+
+  public function thankyou() {
     return view('pages.thanku');
   }
 
@@ -87,7 +91,6 @@ class SolutionQueryController extends Controller
   }
 
   public function sendOtp(Request $request) {
-    // FIXME: Validate Mobile Number;
     $mobileNumber = $request->input('mobileNumber');
     
     $userId = config('app.neutrinoapiUserId');
