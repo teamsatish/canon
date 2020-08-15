@@ -59,7 +59,16 @@
                     @endif
                   @endforeach
                 </div>
-                <div class="personalform blurdiv">
+
+               
+                <div 
+                  @if(session('removeBlur'))
+                    class="personalform"
+                  @endif
+                  @if(!session('removeBlur'))
+                    class="personalform blurdiv"
+                  @endif
+                >
                     <div class="floating-label">      
                         <input name="name" value="{{old('name', 'Satish')}}" class="floating-input form-control" type="text" placeholder=" ">
                         <span class="highlight"></span>
@@ -104,7 +113,7 @@
                     </div>
                     <div class="stateinputwrap">
                         <div class="floating-label">      
-                            <input name="pincode" value="{{old('pincode', '121003')}}"class="floating-input form-control" type="text" placeholder=" ">
+                            <input id="pincode" maxlength="6" name="pincode" value="{{old('pincode', '121003')}}"class="floating-input form-control" type="text" placeholder=" ">
                             <span class="highlight"></span>
                             <label>Pincode*</label>
                             @error('pincode')
@@ -112,7 +121,7 @@
                             @enderror
                         </div>
                         <div class="floating-label">      
-                            <input name="state" value="{{old('state', 'Haryana')}}" class="floating-input form-control" type="text" placeholder=" ">
+                            <input id="state" name="state" value="{{old('state', 'Haryana')}}" class="floating-input form-control" type="text" placeholder=" ">
                             <span class="highlight"></span>
                             <label>State*</label>
                             @error('state')

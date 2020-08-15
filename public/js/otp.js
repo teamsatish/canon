@@ -1,11 +1,29 @@
 window.onload = function() {
   var mobileNumberInput = document.getElementById('mobileNumber');
+  var pincodeInput = document.getElementById('pincode');
+  var stateInput = document.getElementById('state');
   var sendOtpButton = document.getElementById('sendOtp');
 
   mobileNumberInput.onkeyup = function (event) {
     const mobileNumber = mobileNumberInput.value;
     if (mobileNumber.length === 10 && !isNaN(mobileNumber)) {
       sendOtpButton.disabled = false;
+    } else {
+      sendOtpButton.disabled = true;
+    }
+  };
+
+  pincodeInput.onkeyup = function (event) {
+    const pincode = pincodeInput.value;
+    if (pincode.length === 6 && !isNaN(pincode)) {
+      fetch(`https://api.postalpincode.in/pincode/${pincode}`)
+        .then(response => response.json())
+        .then(responseBody => {
+          if (Array.isArray(responseBody) && responseBody[0] && responseBody[0].PostOffice && Array.isArray(responseBody[0].PostOffice) && responseBody[0].PostOffice[0] && responseBody[0].PostOffice[0].State) {
+            const state = responseBody[0].PostOffice[0].State;
+            stateInput.value = state;
+          }
+      });
     } else {
       sendOtpButton.disabled = true;
     }

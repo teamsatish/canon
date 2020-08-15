@@ -34,6 +34,8 @@ class SolutionQueryController extends Controller
 
   public function create(Request $request) {
 
+    $request->session()->flash('removeBlur', true);
+
     $validatedData = $request->validate([
         'business' => 'required|array',
         'name' => 'required|max:255',
@@ -102,15 +104,16 @@ class SolutionQueryController extends Controller
     ])->post('https://neutrinoapi.net/sms-verify', [
       'number' => $mobileNumber
     ]);
+    dd($response);
 
     // TODO: Remove when deploying
-    if(config('app.env') == 'local') {
-      $response = [
-        'number-valid' => true,
-        'sent' => true,
-        'security-code' => '00000',
-      ];
-    }
+    // if(config('app.env') == 'local') {
+    //   $response = [
+    //     'number-valid' => true,
+    //     'sent' => true,
+    //     'security-code' => '00000',
+    //   ];
+    // }
 
     if(!$response['number-valid']) {
       return response(['message' => 'Mobile Number is not valid!'], 400);
