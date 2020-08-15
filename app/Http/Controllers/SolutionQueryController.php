@@ -66,7 +66,8 @@ class SolutionQueryController extends Controller
         $request->except(['isAgreedTerms', 'otp']),
         [
           'businessCategory' => self::BUSINESS_NATURE[$business],
-          'business' => $business
+          'business' => $business,
+          'otherBusinessDetail' => $business !== 'Other Kind Of Business' ? '' : $request->input('otherBusinessDetail')
         ]
       );
       $solutionQuery = SolutionQuery::create($solutionObject);

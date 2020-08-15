@@ -18,6 +18,9 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
+            <th>Business Category</th>
+            <th>Business</th>
+            <th>Business Detail</th>
             <th>Name</th>
             <th>Email</th>
             <th>Company Name</th>
@@ -30,6 +33,10 @@
         </thead>
         <tfoot>
           <tr>
+            <th>Business Category</th>
+            <th>Business</th>
+            <th>Business Detail</th>
+            <th>Name</th>
             <th>Name</th>
             <th>Email</th>
             <th>Company Name</th>
@@ -43,13 +50,16 @@
         <tbody>
           @foreach ($solutionQueries as $solutionQuery)
             <tr>
+              <td>{{ $solutionQuery->businessCategory }}</td>
+              <td>{{ $solutionQuery->business }}</td>
+              <td class="expand" title="Buisiness Detail" data="{{$solutionQuery->otherBusinessDetail}}">{{ substr($solutionQuery->otherBusinessDetail, 0, 10) }}</td>
               <td>{{ $solutionQuery->name }}</td>
               <td>{{ $solutionQuery->email }}</td>
               <td>{{ $solutionQuery->companyName }}</td>
               <td>{{ $solutionQuery->mobileNumber }}</td>
               <td>{{ $solutionQuery->pincode }}</td>
               <td>{{ $solutionQuery->state }}</td>
-              <td class="query-details" data="{{$solutionQuery->query}}">{{ substr($solutionQuery->query, 0, 10) }}</td>
+              <td class="expand" title="Query Detail" data="{{$solutionQuery->query}}">{{ substr($solutionQuery->query, 0, 10) }}</td>
               <td>{{ $solutionQuery->created_at->format('j F Y') }}</td>
             </tr>
           @endforeach
@@ -64,7 +74,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Query Description</h5>
+        <h5 class="modal-title" id="modalTitle">Query Description</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
