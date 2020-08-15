@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('../font/Gotham-Medium.eot');
+    src: url('../font/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../font/Gotham-Medium.woff2') format('woff2'),
+        url('../font/Gotham-Medium.woff') format('woff'),
+        url('../font/Gotham-Medium.ttf') format('truetype'),
+        url('../font/Gotham-Medium.svg#Gotham-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham-Light';
+    src: url('../font/Gotham-Light.eot');
+    src: url('../font/Gotham-Light.eot?#iefix') format('embedded-opentype'),
+        url('../font/Gotham-Light.woff2') format('woff2'),
+        url('../font/Gotham-Light.woff') format('woff'),
+        url('../font/Gotham-Light.ttf') format('truetype'),
+        url('../font/Gotham-Light.svg#Gotham-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura-Medium';
+    src: url('../font/FuturaBT-MediumCondensed.eot');
+    src: url('../font/FuturaBT-MediumCondensed.eot?#iefix') format('embedded-opentype'),
+        url('../font/FuturaBT-MediumCondensed.woff2') format('woff2'),
+        url('../font/FuturaBT-MediumCondensed.woff') format('woff'),
+        url('../font/FuturaBT-MediumCondensed.ttf') format('truetype'),
+        url('../font/FuturaBT-MediumCondensed.svg#FuturaBT-MediumCondensed') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura-bold';
+    src: url('../font/Futura-Bold.eot');
+    src: url('../font/Futura-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../font/Futura-Bold.woff2') format('woff2'),
+        url('../font/Futura-Bold.woff') format('woff'),
+        url('../font/Futura-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Futura-regular';
+    src: url('../font/FuturaCondMedium.eot');
+    src: url('../font/FuturaCondMedium.eot?#iefix') format('embedded-opentype'),
+        url('../font/FuturaCondMedium.woff2') format('woff2'),
+        url('../font/FuturaCondMedium.woff') format('woff'),
+        url('../font/FuturaCondMedium.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Futura Hv BT';
+    src: url('FuturaBT-Heavy.eot');
+    src: url('FuturaBT-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('FuturaBT-Heavy.woff2') format('woff2'),
+        url('FuturaBT-Heavy.woff') format('woff'),
+        url('FuturaBT-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

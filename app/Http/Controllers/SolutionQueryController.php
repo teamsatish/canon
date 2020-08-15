@@ -16,9 +16,26 @@ class SolutionQueryController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+  const BUSINESS_NATURE = [
+    'Production/Post Production House' => 'Under OTT',
+    'YouTube Content Studio' => 'YouTube',
+    'Rental House' => 'Under OTT',
+    'Video Content Creator' => 'YouTube',
+    'DoP/Cinematographer/Filmmaker' => 'Under OTT',
+    'Print/Electronic/Digital Media' => 'Media',
+    'Film & Television Institute' => 'Under OTT',
+    'Mass Communication Institute' => 'Education Mass com',
+    'Visual FX/Animation/Gaming Studio' => 'VFX',
+    'Fine Arts Institute' => 'Education Mass com',
+    '3D/Animation/VFX Institute' => 'VFX',
+    'Photography Institute' => 'Photo schools',
+    'Other Kind Of Business' => 'Other',
+  ];
+
   public function create(Request $request) {
 
     $validatedData = $request->validate([
+        'business' => 'required|array',
         'name' => 'required|max:255',
         'email' => 'required|email|max:255',
         'companyName' => 'required|max:255',
@@ -30,23 +47,42 @@ class SolutionQueryController extends Controller
         'isAgreedTerms' => 'accepted',
     ]);
 
+    foreach ($request->input('business') as $businessIndex => $business) {
+      if($business == 'Other Kind Of Business' && $request->input('otherBusinessDetail') == '') {
+        $request->session()->flash('error', 'Please provide other business detail!');
+        return view('pages.solution-query', ['BUSINESS_NATURE' => self::BUSINESS_NATURE])->withInput($request->all());
+      }
+    }
+
     $mobileNumber = '+91'.$request->input('mobileNumber');
     $otpInstance = Otp::where('mobileNumber', $mobileNumber)->first();
     if(!$otpInstance || ($otpInstance->otp != $request->input('otp'))) {
       $request->session()->flash('error', 'Otp not matched!');
-      return view('pages.solution-query')->withInput($request->all());
+      return view('pages.solution-query', ['BUSINESS_NATURE' => self::BUSINESS_NATURE])->withInput($request->all());
     }
 
-    $solutionQuery = SolutionQuery::create($request->except(['isAgreedTerms']));
+    foreach ($request->input('business') as $businessIndex => $business) {
+      $solutionObject = array_merge(
+        $request->except(['isAgreedTerms', 'otp']),
+        [
+          'businessCategory' => self::BUSINESS_NATURE[$business],
+          'business' => $business
+        ]
+      );
+      $solutionQuery = SolutionQuery::create($solutionObject);
+    }
+
+    
+    
     $otpInstance->delete();
 
     $request->session()->forget('error');
     $request->session()->flash('message', 'Query submitted succesfully!');
-    return view('pages.solution-query')->withInput($request->all());
+    return view('pages.thanku');
   }
 
   public function index(Request $request) {
-    return SolutionQuery::all();
+    return view('pages.solution-query', ['BUSINESS_NATURE' => self::BUSINESS_NATURE]);
   }
 
   public function sendOtp(Request $request) {
@@ -63,6 +99,15 @@ class SolutionQueryController extends Controller
       'number' => $mobileNumber
     ]);
 
+    // TODO: Remove when deploying
+    if(config('app.env') == 'local') {
+      $response = [
+        'number-valid' => true,
+        'sent' => true,
+        'security-code' => '00000',
+      ];
+    }
+
     if(!$response['number-valid']) {
       return response(['message' => 'Mobile Number is not valid!'], 400);
     }
@@ -72,9 +117,6 @@ class SolutionQueryController extends Controller
     }
 
     if($response['sent']) {
-      // Delete existing otp (if any)
-      // Save new otp
-
       $otpInstance = Otp::where('mobileNumber', $mobileNumber)->first();
       if(!is_null($otpInstance)) {
         $otpInstance->delete();
@@ -87,7 +129,6 @@ class SolutionQueryController extends Controller
     }
     
     $otp = $response['security-code'];
-
     return response(['message' => 'Otp sent successfully!']);
   }
   

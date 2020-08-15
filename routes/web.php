@@ -17,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('/');
 // });
 
-Route::get('/', function () {
-    return view('pages.solution-query');
-});
-
+Route::get('/', 'SolutionQueryController@index');
 Route::post('/', 'SolutionQueryController@create');
 
 Auth::routes(['register' => false]);
