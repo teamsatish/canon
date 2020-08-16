@@ -19,7 +19,7 @@
     <div class="mainblock blurblock">
         <div class="bannercontent">
             <div class="bannertext"><img src="images/bannertext.png" alt=""></div>
-            <div class="bannerbtn"><a href="#"><img src="images/button.png" alt=""></a></div>
+            <div class="bannerbtn"><a href="https://in.canon/en/consumer/products/search?category=photography" target="_blank"><img src="images/button.png" alt=""></a></div>
         </div>
     </div>
 

@@ -31,13 +31,13 @@ window.onload = function() {
 
   sendOtpButton.onclick = function () {
     const mobileNumber = mobileNumberInput.value;
-    sendOtpButton.textContent = 'Sending OTP...';
+    // sendOtpButton.textContent = 'Sending OTP...';
     const url = 'http://3.6.178.94/send-otp';
     // const url = 'http://localhost:8000/send-otp';
     postData(url, { mobileNumber: `+91${mobileNumber}` })
       .then(data => {
-        sendOtpButton.textContent = 'Sending Sent!';
-        console.log(data); // JSON data parsed by `data.json()` call
+        // sendOtpButton.textContent = 'Sending Sent!';
+        // console.log(data); // JSON data parsed by `data.json()` call
       });
   }
 };

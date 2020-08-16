@@ -9,4 +9,8 @@ $(document).ready(function(){
         $(this).parent().parent().hide();
     });
 
+    if (navigator.platform.match('Mac') !== null) {
+        document.body.setAttribute('class', document.body.className + ' MAC');
+    }
+
 });

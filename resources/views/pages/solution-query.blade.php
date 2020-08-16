@@ -24,7 +24,7 @@
 @endif
     <div class="bannerform">
         <div class="bannerformcont">
-            <h5 class="bannerformtop">For a customised solution, please submit your query</h5>
+            <div class="bannerformtop"><p>For a customised solution, please submit your query</p></div>
             <div class="formhead">
                 <h4>Choose your nature of business</h4>
             </div>
@@ -69,26 +69,24 @@
                     class="personalform blurdiv"
                   @endif
                 >
-                    <div class="floating-label">      
-                        <input name="name" value="{{old('name', 'Satish')}}" class="floating-input form-control" type="text" placeholder=" ">
-                        <span class="highlight"></span>
-                        <label>Name*</label>
+                    <div class="floatinglabel">      
+                        <input name="name" value="{{old('name')}}" class="form-control" type="text">
+                        <label class="floatplaceholder">Name*</label>
                         @error('name')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="floating-label">      
-                        <input name="email" value="{{old('email', 'satishkumr001@gmail.com')}}" class="floating-input form-control" type="email" placeholder=" ">
-                        <span class="highlight"></span>
-                        <label>Email Id*</label>
+                    <div class="floatinglabel">      
+                        <input name="email" value="{{old('email')}}" class="form-control" type="email">
+                        <label class="floatplaceholder">Email Id*</label>
                         @error('email')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="floating-label">      
-                        <input name="companyName" value="{{old('companyName', 'Clik')}}" class="floating-input form-control" type="text" placeholder=" ">
+                    <div class="floatinglabel">      
+                        <input name="companyName" value="{{old('companyName')}}" class="form-control" type="text">
                         <span class="highlight"></span>
-                        <label>Company Name*</label>
+                        <label class="floatplaceholder">Company Name*</label>
                         @error('companyName')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -97,7 +95,7 @@
                     <div class="mobileinputwrap">
                         <div class="mobileinput">
                             <label>Mobile Number</label>
-                            <input name="mobileNumber" value="{{old('mobileNumber', '813062671')}}" id="mobileNumber" type="text">
+                            <input name="mobileNumber" value="{{old('mobileNumber')}}" id="mobileNumber" type="text">
                             <button disabled id="sendOtp" type="button">Verify*</button>
                             @error('mobileNumber')
                               <div class="invalid-feedback">{{ $message }}</div>
@@ -105,25 +103,25 @@
                         </div>
                         <div class="mobileotp">
                             <label>OTP</label>
-                            <input name="otp" value="{{old('otp', '')}}" type="text">
+                            <input name="otp" value="{{old('otp')}}" type="text">
                             @error('otp')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="stateinputwrap">
-                        <div class="floating-label">      
-                            <input id="pincode" maxlength="6" name="pincode" value="{{old('pincode', '121003')}}"class="floating-input form-control" type="text" placeholder=" ">
+                        <div class="floatinglabel">      
+                            <input id="pincode" maxlength="6" name="pincode" value="{{old('pincode')}}"class="form-control" type="text">
                             <span class="highlight"></span>
-                            <label>Pincode*</label>
+                            <label class="floatplaceholder">Pincode*</label>
                             @error('pincode')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="floating-label">      
-                            <input id="state" name="state" value="{{old('state', 'Haryana')}}" class="floating-input form-control" type="text" placeholder=" ">
+                        <div class="floatinglabel">      
+                            <input id="state" name="state" value="{{old('state')}}" class="form-control" type="text">
                             <span class="highlight"></span>
-                            <label>State*</label>
+                            <label class="floatplaceholder">State*</label>
                             @error('state')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -131,7 +129,7 @@
                     </div>
                     <div class="querywrap">
                         <label>Query</label>
-                        <textarea name="query" rows="10" aria-setsize="none">{{old('query', 'Some query')}}</textarea>
+                        <textarea name="query" rows="10" aria-setsize="none">{{old('query')}}</textarea>
                         @error('query')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

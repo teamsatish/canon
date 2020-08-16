@@ -1,4 +1,5 @@
 @import url('../font/font.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: 'Gotham-Medium', sans-serif;
+    font-family: 'Gotham', sans-serif;
 }
 header,
 footer,
@@ -101,37 +102,38 @@ header {
     max-width: 800px;
     width: -webkit-fill-available;
     margin: 0 auto;
+    background-color: rgba(255, 255, 255, .95);
     background-color: rgb(255 255 255 / 90%);
 }
 .bannerformtop {
     background-color: #e92227;
     color: #fff;
-    font-weight: 500;
     text-transform: uppercase;
+    padding: 0 5px;
     text-align: center;
-    font-size: 17px;
-    font-family: 'Gotham-Medium', Arial;
-    align-items: center;
-    display: block;
-    line-height: 47px;
-    height: 34px;
+}
+.bannerformtop p {
+    font-family: 'Gotham-Medium';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 34px;
+    margin: 0 !important;
 }
 .formhead {
     text-align: center;
-    margin: 3% 0 0;
 }
 .formhead h4 {
     display: inline-block;
-    border-bottom: 1px solid #4e4e4e;
+    border-bottom: 1px solid #000;
     padding-bottom: 5px;
-    margin: .5em 0 .5em 0;
-    font-weight: 400;   
-    font-family: 'Gotham-Light', Arial;
+    margin: 1em 0;
+    font-weight: 400;
+    font-family: 'Gotham-Light';
     font-size: 18px;
 }
 .bannerformbox {
     width: 100%;
-    padding: 1em;
+    padding: .5em 1em 1em 1em;
 }
 .bannerformbox .row {
     display: flex;
@@ -140,7 +142,7 @@ header {
 }
 .choosebox {
     width: 50%;
-    margin: .5em 0;
+    margin: .8em 0;
 }
 .choosebox input {
     display: none;
@@ -151,16 +153,14 @@ header {
     color: #000;
     font-size: 15px;
     font-weight: 500;
-    line-height: 26px;
-    display: block;
     cursor: pointer;
-    width: 100%;
+    white-space: nowrap;
 }
 .customcheck {
     position: absolute;
     width: 20px;
     height: 23px;
-    top: -4px;
+    top: -3px;
     left: 0;
     background-image: url(../images/circle.png);
     background-repeat: no-repeat;
@@ -197,8 +197,8 @@ header {
     border: none;
     border-bottom: 1px solid #000;
     display: block;
-    font-size: 14px;
     flex: 1;
+    width: 50%;
 }
 .personalform {
     display: block;
@@ -206,6 +206,7 @@ header {
 .blurdiv {
     position: relative;
     filter: blur(3px);
+    z-index: 0;
 }
 .blurdiv:before {
     content: '';
@@ -214,6 +215,36 @@ header {
     height: 100%;
     top: 0;
     left: 0;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 1;
+}
+.floatinglabel {
+    position: relative;
+    height: 30px;
+    margin: 1.5em 0;
+    font-family: 'Gotham-Light';
+    z-index: 0;
+}
+.floatinglabel input {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    padding-top: 1em !important;
+}
+.floatplaceholder {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    font-size: 14px;
+    font-family: 'Gotham-Light';
+    z-index: -1;
+    transition: .3s;
+}
+.floatinglabel input:focus {
+    border-bottom: 1px solid #e92227;
+}
+.floatinglabel input:focus ~ .floatplaceholder {
+    top: -5px;
 }
 .personalform input {
     background: none;
@@ -222,11 +253,11 @@ header {
     display: block;
     width: 100%;
     padding: 5px 0;
+    margin: 1em  0;
     font-weight: 500;
     font-size: 14px;
-    font-family: Arial;
+    font-family: 'Gotham-Light';
     color: #000;
-    margin-bottom: 22px;    
 }
 .personalform input::placeholder {
     color: #000;
@@ -235,16 +266,16 @@ header {
     width: 48%;
     display: flex;
     align-items: center;
-    font-family: 'Gotham-Light', Arial;
+    font-family: 'Gotham-Light';
+    position: relative;
 }
 .mobileinput input, .mobileotp input {
     border: 1px solid #000;
     height: 25px;
     padding: 5px;
-    margin-bottom: 1em;
+    margin: 0;
 }
 .mobileinput button {
-    margin-top: -13px;
     height: 25px;
     width: 130px;
     background: none;
@@ -259,11 +290,8 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.stateinputwrap .floating-label {
-    width: 100%;
-}
-.stateinputwrap .floating-label:first-child input {
-    width: 96%;
+.stateinputwrap .floatinglabel {
+    width: 48%;
 }
 
 .mobileinputwrap {
@@ -302,33 +330,25 @@ header {
 .querywrap {
     display: flex;
     flex-direction: column;
-    margin-top: 9px;
 }
 .querywrap label {
     font-size: 14px;
     color: #000;
     margin-bottom: 5px;
     font-weight: 500;
-    font-family: 'Gotham-Light', Arial;
+    font-family: 'Gotham-Light';
 }
 .querywrap textarea {
     background: none;
     border: 1px solid #000;
     padding: 5px;
-    font-family: 'Arial';
-    resize: none;
     font-size: 14px;
-
+    font-family: 'Gotham';
+    resize: none;
 }
 .personalchbox input {
     opacity: 0.5;
     display: none;
-}
-.personalchbox {
-    display: block;
-    padding: 1em 0 0;
-    line-height: 20px;
-    height: 20px;
 }
 .personalchbox label {
     padding: 0 0 0 2em;
@@ -336,8 +356,8 @@ header {
     margin-top: 1em;
     font-size: 12px;
     color: #000;
-    position: relative; 
-    font-family: 'Gotham-Light', Arial;
+    position: relative;
+    font-family: 'Gotham-Light';
 }
 .personalchbox label a {
     color: #000;
@@ -347,7 +367,7 @@ header {
     width: 16px;
     height: 16px;
     border: 1px solid #000;
-    top: 6px;
+    top: 50%;
     left: 0;
     transform: translate(0, -50%);
     border-radius: 2px;
@@ -406,6 +426,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 .thankyoubox h4 {
     font-size: 3em;
@@ -425,9 +446,52 @@ header {
     border: 1px solid #000;
     color: #fff;
     padding: 5px 1em;
-    cursor: pointer;
 }
 /* end banner form */
+
+/* error */
+.invalid-feedback {
+    font-size: 11px;
+    color: red;
+    position: absolute;
+    font-weight: 600;
+    top: 110%;
+    left: 0;
+}
+/* end error */
+
+
+.MAC .bannerformtop {
+    background-color: #e92227;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Gotham-Medium', Arial;
+    align-items: center;
+    display: block;
+    line-height: 47px;
+    height: 34px;
+}
+
+.MAC .formhead {
+    margin: 3% 0 0;
+}
+
+.MAC .floatinglabel {
+    margin-bottom: 32px;
+}
+
+.MAC .personalchbox {
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 5% 0;
+}
+
+.MAC .personalform  input[type="text"] {font-family: 'Arial';}
 
 
 /* footer */
@@ -484,102 +548,67 @@ footer .row {
 }
 
 
-/****  floating-Lable style start ****/
-.floating-label { 
-    position:relative; 
-    margin-bottom:10px; 
-    font-family: 'Gotham-Light', Arial;
-  }
-  .floating-input , .floating-select {
-    font-size:14px;
-    padding:4px 4px;
-    display:block;
-    width:100%;
-    height:30px;
-    background-color: transparent;
-    border:none;
-    border-bottom:1px solid #757575;
-  }
-  
-  .floating-input:focus , .floating-select:focus {
-       outline:none;
-       border-bottom: 1px solid #ea2228; 
-  }
-  
-  .floating-label label {
-    color:#000; 
-    font-family: 'Gotham-Light', Arial;
-    font-size:14px;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:0;
-    top:23px;
-    transition:0.2s ease all; 
-    -moz-transition:0.2s ease all; 
-    -webkit-transition:0.2s ease all;
-  }
-  
-  .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
-    top: 0;
-    font-size: 14px;
-    color: #000;
-  }
-  
-  .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
-    top: 0;
-    font-size: 14px;
-    color: #000;
-  }
-  
-  /* active state */
-  .floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after {
-    width:50%;
-  }
-  
-  *, *:before, *:after {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-  }
-  
-  .floating-textarea {
-     min-height: 30px;
-     max-height: 260px; 
-     overflow:hidden;
-    overflow-x: hidden; 
-  }
-  
-  /* highlighter */
-  .highlight {
-    position:absolute;
-    height:50%; 
-    width:100%; 
-    top:15%; 
-    left:0;
-    pointer-events:none;
-    opacity:0.5;
-  }
-  
-  /* active state */
-  .floating-input:focus ~ .highlight , .floating-select:focus ~ .highlight {
-    -webkit-animation:inputHighlighter 0.3s ease;
-    -moz-animation:inputHighlighter 0.3s ease;
-    animation:inputHighlighter 0.3s ease;
-  }
-  
-  /* animation */
-  @-webkit-keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-  @-moz-keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-  @keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-  
-  /****  floating-Lable style end ****/
+
+
+
+@media (max-width: 800px) {
+    .bannerformcont {
+        max-width: 95%;
+    }
+    .footerbox p {
+        font-size: 12px;
+    }
+}
+@media (max-width: 767px) {
+    .choosebox {
+        width: 100%;
+    }
+    .mobileinput, .mobileotp,
+    .stateinputwrap .floatinglabel {
+        width: 100%;
+        margin: .5em 0;
+    }
+    .mobileinputwrap,
+    .stateinputwrap {
+        flex-wrap: wrap;
+    }
+    .mobileinput label, .mobileotp label {
+        width: 100px !important;
+    }
+    .querywrap {
+        margin-top: .5em;
+    }
+    .mobileinput input, .mobileotp input {
+        flex: 1;
+    }
+}
+@media (max-width: 575px) {
+    footer .row {
+        flex-wrap: wrap;
+    }
+    .bannerformcont {
+        background-color: rgba(255, 255, 255, 95%);
+        background-color: rgb(255 255 255 / 95%);
+    }
+    .footerbox {
+        width: 100%;
+        padding: .5em;
+        justify-content: center;
+    }
+    .choosebox label {
+        font-size: 13px;
+    }
+    .bannerformtop {
+        font-size: 14px;
+    }
+    .mobileinput button {
+        width: 75px;
+    }
+}
+@media (max-width: 575px) {
+    .floatplaceholder,
+    .mobileinput label, .mobileotp label,
+    .querywrap label {
+        font-size: 12px;
+    }
+}

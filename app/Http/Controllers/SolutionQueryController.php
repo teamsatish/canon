@@ -60,7 +60,7 @@ class SolutionQueryController extends Controller
     $otpInstance = Otp::where('mobileNumber', $mobileNumber)->first();
     if(!$otpInstance || ($otpInstance->otp != $request->input('otp'))) {
       $request->session()->flash('error', 'Otp not matched!');
-      return view('pages.solution-query', ['BUSINESS_NATURE' => self::BUSINESS_NATURE])->withInput($request->all());
+      return view('pages.solution-query', array_merge(['BUSINESS_NATURE' => self::BUSINESS_NATURE], $request->all()))->withInput($request->all());
     }
 
     foreach ($request->input('business') as $businessIndex => $business) {
@@ -104,8 +104,6 @@ class SolutionQueryController extends Controller
     ])->post('https://neutrinoapi.net/sms-verify', [
       'number' => $mobileNumber
     ]);
-    dd($response);
-
     // TODO: Remove when deploying
     // if(config('app.env') == 'local') {
     //   $response = [
