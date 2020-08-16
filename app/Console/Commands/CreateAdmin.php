@@ -42,8 +42,8 @@ class CreateAdmin extends Command
     {
         $data = [
             'name' => 'Admin',
-            'email' => 'satishkumr001+admin@gmail.com',
-            'password' => 'S@30kumar'
+            'email' => 'admin@canon.com',
+            'password' => 'P@ssw0rd'
         ];
 
         User::create([
