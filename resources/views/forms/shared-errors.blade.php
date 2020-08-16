@@ -1,9 +1,14 @@
 <!-- will be used to show any messages -->
 
 @if (session('message'))
-    <div class="alert alert-info">{{ session('message') }}</div>
+    <script>
+      toastr.info("{{ session('message') }}");
+    </script>
 @endif
 
 @if (session('error'))
-    <div class="alert alert-danger">{{ session('error') }}</div>
+    <script>
+      toastr.error("{{ session('error') }}");
+    </script>
+    <!-- <div class="alert alert-danger">{{ session('error') }}</div> -->
 @endif

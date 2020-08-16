@@ -34,10 +34,14 @@ window.onload = function() {
     // sendOtpButton.textContent = 'Sending OTP...';
     const url = 'http://3.6.178.94/send-otp';
     // const url = 'http://localhost:8000/send-otp';
+    sendOtpButton.disabled = true;
     postData(url, { mobileNumber: `+91${mobileNumber}` })
       .then(data => {
         // sendOtpButton.textContent = 'Sending Sent!';
+        toastr.success(data.message);
         // console.log(data); // JSON data parsed by `data.json()` call
+      }).finally(() => {
+        sendOtpButton.disabled = false;
       });
   }
 };

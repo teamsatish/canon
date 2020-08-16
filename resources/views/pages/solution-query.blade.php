@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.ai</title>
+    <title>Canon</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -18,10 +19,6 @@
 <!-- end header -->
 
 <section class="mainblock2">
-
-@if (session('error'))
-    <div class="alert alert-danger" style="color: red;">{{ session('error') }}</div>
-@endif
     <div class="bannerform">
         <div class="bannerformcont">
             <div class="bannerformtop"><p>For a customised solution, please submit your query</p></div>
@@ -31,10 +28,6 @@
             <form method="POST" class="bannerformbox" action="/" autocomplete="off">
               @csrf
                 <div class="row">
-
-                @error('business')
-                  <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
                   @foreach ($BUSINESS_NATURE as $businessNature => $category)
                     
                     @if($businessNature !== 'Other Kind Of Business')
@@ -60,6 +53,9 @@
                   @endforeach
                 </div>
 
+                @error('business')
+                  <div class="invalid-feedback-2">Please choose your nature of business</div>
+                @enderror
                
                 <div 
                   @if(session('removeBlur'))
@@ -70,21 +66,21 @@
                   @endif
                 >
                     <div class="floatinglabel">      
-                        <input name="name" value="{{old('name')}}" class="form-control" type="text">
+                        <input name="name" id="name" value="{{old('name')}}" class="form-control" type="text">
                         <label class="floatplaceholder">Name*</label>
                         @error('name')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="floatinglabel">      
-                        <input name="email" value="{{old('email')}}" class="form-control" type="email">
+                        <input name="email" id="email" value="{{old('email')}}" class="form-control" type="email">
                         <label class="floatplaceholder">Email Id*</label>
                         @error('email')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="floatinglabel">      
-                        <input name="companyName" value="{{old('companyName')}}" class="form-control" type="text">
+                        <input name="companyName" id="companyName" value="{{old('companyName')}}" class="form-control" type="text">
                         <span class="highlight"></span>
                         <label class="floatplaceholder">Company Name*</label>
                         @error('companyName')
@@ -103,7 +99,7 @@
                         </div>
                         <div class="mobileotp">
                             <label>OTP</label>
-                            <input name="otp" value="{{old('otp')}}" type="text">
+                            <input name="otp" id="otp" value="{{old('otp')}}" type="text">
                             @error('otp')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -176,8 +172,22 @@
     </div>
 </footer>
 <!-- end footer -->
-
 <script src="{{ asset('js/jquery.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+@if (session('message'))
+    <script>
+      toastr.info("{{ session('message') }}");
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+      var x = "{{ session('error') }}";
+      toastr.error(x);
+    </script>
+@endif
+
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('js/otp.js') }}"></script>
 </body>

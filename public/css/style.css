@@ -458,6 +458,12 @@ header {
     top: 110%;
     left: 0;
 }
+
+.invalid-feedback-2 {
+    font-size: 11px;
+    color: red;
+    font-weight: 600;
+}
 /* end error */
 
 
@@ -582,6 +588,30 @@ footer .row {
         flex: 1;
     }
 }
+
+.MAC .invalid-feedback {
+    width: 400px;
+    top: 43px;
+    position: absolute;
+    float: left;
+    clear: both;
+    display: flex;
+}
+
+.MAC .mobileinputwrap {
+    margin-bottom: 22px;
+}
+
+.MAC .bannerformtop p {
+    line-height: 43px;
+}
+
+.querywrap {
+    position: relative;
+}
+
+.MAC .personalform input {font-family: 'Arial';}
+
 @media (max-width: 575px) {
     footer .row {
         flex-wrap: wrap;

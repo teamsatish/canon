@@ -22,7 +22,7 @@ class CreateSolutionQueriesTable extends Migration
             $table->string('otp');
             $table->string('pincode');
             $table->string('state');
-            $table->longText('query');
+            $table->longText('query')->nullable();
             $table->timestamps();
         });
     }

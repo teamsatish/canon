@@ -5,7 +5,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Solution Queries</h1>
-  <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+  <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onClick="generateReport()"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</button>
 </div>
 
 <!-- DataTales Example -->
@@ -14,6 +14,10 @@
     <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
   </div> -->
   <div class="card-body">
+
+    <script>
+      window.queries = @json($solutionQueries);
+    </script>
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
