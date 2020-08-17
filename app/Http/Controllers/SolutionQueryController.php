@@ -47,7 +47,7 @@ class SolutionQueryController extends Controller
         'state' => 'required|max:255',
         // 'query' => 'required|min:10',
         'isAgreedTerms' => 'accepted',
-    ], ['isAgreedTerms.accepted' => 'Please accept the terms.']);
+    ], ['isAgreedTerms.accepted' => 'Please accept the terms and conditions']);
 
 
     foreach ($request->input('business') as $businessIndex => $business) {
