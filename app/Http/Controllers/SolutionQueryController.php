@@ -52,7 +52,7 @@ class SolutionQueryController extends Controller
 
     foreach ($request->input('business') as $businessIndex => $business) {
       if($business == 'Other Kind Of Business' && $request->input('otherBusinessDetail') == '') {
-        $request->session()->flash('error_business', 'Please provide other business detail!');
+        $request->session()->flash('error_business', 'Please specify your nature of business');
         session()->flashInput($request->input());
         // dd(session());
         return view('pages.solution-query', array_merge(['BUSINESS_NATURE' => self::BUSINESS_NATURE], $request->all()))->withInput($request->all());

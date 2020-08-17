@@ -209,5 +209,4 @@
 </html>
 <!-- 
 // Resend otp.
-// Please accept the terms.
 // Pincode not valid. -->
