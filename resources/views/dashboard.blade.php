@@ -30,6 +30,7 @@
             <th>Company Name</th>
             <th>Mobile Number</th>
             <th>Pincode</th>
+            <th>City</th>
             <th>State</th>
             <th>Query</th>
             <th>Query date</th>
@@ -45,6 +46,7 @@
             <th>Company Name</th>
             <th>Mobile Number</th>
             <th>Pincode</th>
+            <th>City</th>
             <th>State</th>
             <th>Query</th>
             <th>Query date</th>
@@ -61,6 +63,7 @@
               <td>{{ $solutionQuery->companyName }}</td>
               <td>{{ $solutionQuery->mobileNumber }}</td>
               <td>{{ $solutionQuery->pincode }}</td>
+              <td>{{ $solutionQuery->city }}</td>
               <td>{{ $solutionQuery->state }}</td>
               <td class="expand" title="Query Detail" data="{{$solutionQuery->query}}">{{ substr($solutionQuery->query, 0, 10) }}</td>
               <td>{{ $solutionQuery->created_at->format('j F Y') }}</td>

@@ -135,11 +135,19 @@
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="floatinglabel">      
+                        <div class="floatinglabel" hidden>
                             <input id="state" name="state" value="{{old('state')}}" class="form-control" type="text">
                             <span class="highlight"></span>
                             <label class="floatplaceholder">State*</label>
                             @error('state')
+                              <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="floatinglabel">
+                            <input id="city" name="city" value="{{old('city')}}" class="form-control" type="text">
+                            <span class="highlight"></span>
+                            <label class="floatplaceholder">City*</label>
+                            @error('city')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
@@ -156,7 +164,7 @@
                             <input
                               name="isAgreedTerms"
                               @if(old('isAgreedTerms') === 'on') checked @endif
-                              type="checkbox"> I agree to the terms and conditions, <a href="#">Read more</a>
+                              type="checkbox"> I agree to the terms and conditions, <a href="{{ asset('pdf/Landing_page_TC__1_.pdf') }}" target="_blank">Read more</a>
                             <span class="personalcheck"></span>
                              @error('isAgreedTerms')
                               <div class="invalid-feedback">{{ $message }}</div>

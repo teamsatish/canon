@@ -2,6 +2,7 @@ window.onload = function() {
   var mobileNumberInput = document.getElementById('mobileNumber');
   var pincodeInput = document.getElementById('pincode');
   var stateInput = document.getElementById('state');
+  var cityInput = document.getElementById('city');
   var sendOtpButton = document.getElementById('sendOtp');
 
   mobileNumberInput.onkeyup = function (event) {
@@ -21,7 +22,9 @@ window.onload = function() {
         .then(responseBody => {
           if (Array.isArray(responseBody) && responseBody[0] && responseBody[0].PostOffice && Array.isArray(responseBody[0].PostOffice) && responseBody[0].PostOffice[0] && responseBody[0].PostOffice[0].State) {
             const state = responseBody[0].PostOffice[0].State;
+            const city = responseBody[0].PostOffice[0].Block;
             stateInput.value = state;
+            cityInput.value = city;
           }
       });
     } else {

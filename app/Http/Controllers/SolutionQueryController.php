@@ -29,6 +29,8 @@ class SolutionQueryController extends Controller
     'Fine Arts Institute' => 'Education Mass com',
     '3D/Animation/VFX Institute' => 'VFX',
     'Photography Institute' => 'Photo schools',
+    'Professional photographer' => 'Professional Photography',
+    'Photo studio' => 'Professional Photography',
     'Other Kind Of Business' => 'Others',
   ];
 
@@ -44,7 +46,7 @@ class SolutionQueryController extends Controller
         'mobileNumber' => 'required|size:10',
         'otp' => 'required|size:5',
         'pincode' => 'required|size:6',
-        'state' => 'required|max:255',
+        'city' => 'required|max:255',
         // 'query' => 'required|min:10',
         'isAgreedTerms' => 'accepted',
     ], ['isAgreedTerms.accepted' => 'Please accept the terms and conditions']);
