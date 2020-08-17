@@ -53,7 +53,7 @@
                                 <span class="customcheck"></span>
                             </label>
                         </div>
-                        <input type="text" name="otherBusinessDetail">
+                        <input type="text" value="{{old('otherBusinessDetail')}}" name="otherBusinessDetail">
                       </div>
                     @endif
                   @endforeach
