@@ -47,12 +47,14 @@ class SolutionQueryController extends Controller
         'state' => 'required|max:255',
         // 'query' => 'required|min:10',
         'isAgreedTerms' => 'accepted',
-    ]);
+    ], ['isAgreedTerms.accepted' => 'Please accept the terms.']);
+
 
     foreach ($request->input('business') as $businessIndex => $business) {
       if($business == 'Other Kind Of Business' && $request->input('otherBusinessDetail') == '') {
-        $request->session()->flash('error', 'Please provide other business detail!');
+        $request->session()->flash('error_business', 'Please provide other business detail!');
         session()->flashInput($request->input());
+        // dd(session());
         return view('pages.solution-query', array_merge(['BUSINESS_NATURE' => self::BUSINESS_NATURE], $request->all()))->withInput($request->all());
       }
     }
@@ -60,8 +62,9 @@ class SolutionQueryController extends Controller
     $mobileNumber = '+91'.$request->input('mobileNumber');
     $otpInstance = Otp::where('mobileNumber', $mobileNumber)->first();
     if(!$otpInstance || ($otpInstance->otp != $request->input('otp'))) {
-      $request->session()->flash('error', 'Otp not matched!');
+      $request->session()->flash('error_otp', 'Otp not matched!');
       session()->flashInput($request->input());
+      
       return view('pages.solution-query', array_merge(['BUSINESS_NATURE' => self::BUSINESS_NATURE], $request->all()))->withInput($request->all());
     }
 

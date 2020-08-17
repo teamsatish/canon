@@ -33,7 +33,11 @@
                     @if($businessNature !== 'Other Kind Of Business')
                       <div class="choosebox">
                         <label>
-                            <input type="checkbox" name="business[]" value="{{ $businessNature }}">{{ $businessNature }}
+                            <input 
+                              type="checkbox"
+                              name="business[]"
+                              @if(is_array(old('business')) && in_array($businessNature, old('business'))) checked @endif
+                              value="{{ $businessNature }}">{{ $businessNature }}
                             <span class="customcheck"></span>
                         </label>
                       </div>
@@ -43,7 +47,9 @@
                       <div class="otherchoosebox">
                         <div class="choosebox">
                             <label>
-                                <input type="checkbox" name="business[]" value="{{ $businessNature }}">{{ $businessNature }}
+                                <input type="checkbox" name="business[]"
+                                  @if(is_array(old('business')) && in_array($businessNature, old('business'))) checked @endif
+                                  value="{{ $businessNature }}">{{ $businessNature }}
                                 <span class="customcheck"></span>
                             </label>
                         </div>
@@ -56,6 +62,9 @@
                 @error('business')
                   <div class="invalid-feedback-2">Please choose your nature of business</div>
                 @enderror
+                @if (session('error_business'))
+                  <div class="invalid-feedback-2">{{ session('error_business') }}</div>
+                @endif
                
                 <div 
                   @if(session('removeBlur'))
@@ -90,19 +99,22 @@
 
                     <div class="mobileinputwrap">
                         <div class="mobileinput">
-                            <label>Mobile Number</label>
+                            <label>Mobile Number*</label>
                             <input name="mobileNumber" maxlength="10" value="{{old('mobileNumber')}}" id="mobileNumber" type="text">
-                            <button disabled id="sendOtp" type="button">Verify*</button>
+                            <button disabled id="sendOtp" type="button">Verify</button>
                             @error('mobileNumber')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mobileotp">
-                            <label>OTP</label>
+                            <label>OTP*</label>
                             <input name="otp" id="otp" value="{{old('otp')}}" type="text">
                             @error('otp')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            @if (session('error_otp'))
+                              <div class="invalid-feedback">{{ session('error_otp') }}</div>
+                            @endif
                         </div>
                     </div>
                     <div class="stateinputwrap">
@@ -132,7 +144,10 @@
                     </div>
                     <div class="personalchbox">
                         <label>
-                            <input name="isAgreedTerms" type="checkbox"> I agree to the terms and conditons, <a href="#">Read more</a>
+                            <input
+                              name="isAgreedTerms"
+                              @if(old('isAgreedTerms') === 'on') checked @endif
+                              type="checkbox"> I agree to the terms and conditons, <a href="#">Read more</a>
                             <span class="personalcheck"></span>
                              @error('isAgreedTerms')
                               <div class="invalid-feedback">{{ $message }}</div>
@@ -192,3 +207,9 @@
 <script src="{{ asset('js/otp.js') }}"></script>
 </body>
 </html>
+
+// Resend otp.
+// Please accept the terms.
+// Pincode not valid.
+// Default selected.
+// Show error on toastr. 
