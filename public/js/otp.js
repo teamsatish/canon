@@ -31,6 +31,8 @@ window.onload = function() {
 
   sendOtpButton.onclick = function () {
     const mobileNumber = mobileNumberInput.value;
+    $('#resendOtp-feedback').show();
+    startTimer();
     // sendOtpButton.textContent = 'Sending OTP...';
     const url = 'http://3.6.178.94/send-otp';
     // const url = 'http://localhost:8000/send-otp';
@@ -45,6 +47,48 @@ window.onload = function() {
       });
   }
 };
+
+function startTimer() {
+  let timerOn = true;
+
+  function timer(remaining) {
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
+    document.getElementById('timer').innerHTML = m + ':' + s;
+    remaining -= 1;
+
+    if (remaining >= 0 && timerOn) {
+      setTimeout(function () {
+        timer(remaining);
+      }, 1000);
+      return;
+    }
+
+    if (!timerOn) {
+      // Do validate stuff here
+      return;
+    }
+
+    // Do timeout stuff here
+    // alert('Timeout for otp');
+
+    $('#resendOtp-feedback').hide();
+    $('#resendOtp-button').show();
+  }
+
+  //TODO: 
+  timer(60);
+}
+
+function resendOtp() {
+  $('#resendOtp-feedback').show();
+  $('#resendOtp-button').hide();
+  var sendOtpButton = document.getElementById('sendOtp');
+  sendOtpButton.click();
+}
 
 async function postData(url = '', data = {}) {
 

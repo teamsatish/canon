@@ -112,6 +112,15 @@
                             @error('otp')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <div
+                              style="color: black;"
+                              id="resendOtp-feedback" hidden
+                              class="invalid-feedback">Resend OTP in <span id="timer"></span> secs </div>
+                            <div
+                              style="color: black;"
+                              id="resendOtp-button" hidden
+                              class="invalid-feedback"><a href="javascript:void(0)" onclick="resendOtp()">Resend OTP</a> </div>
+
                             @if (session('error_otp'))
                               <div class="invalid-feedback">{{ session('error_otp') }}</div>
                             @endif
@@ -147,7 +156,7 @@
                             <input
                               name="isAgreedTerms"
                               @if(old('isAgreedTerms') === 'on') checked @endif
-                              type="checkbox"> I agree to the terms and conditons, <a href="#">Read more</a>
+                              type="checkbox"> I agree to the terms and conditions, <a href="#">Read more</a>
                             <span class="personalcheck"></span>
                              @error('isAgreedTerms')
                               <div class="invalid-feedback">{{ $message }}</div>
