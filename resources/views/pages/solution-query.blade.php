@@ -207,9 +207,7 @@
 <script src="{{ asset('js/otp.js') }}"></script>
 </body>
 </html>
-
+<!-- 
 // Resend otp.
 // Please accept the terms.
-// Pincode not valid.
-// Default selected.
-// Show error on toastr. 
+// Pincode not valid. -->
