@@ -91,7 +91,7 @@
                     <div class="mobileinputwrap">
                         <div class="mobileinput">
                             <label>Mobile Number</label>
-                            <input name="mobileNumber" value="{{old('mobileNumber')}}" id="mobileNumber" type="text">
+                            <input name="mobileNumber" maxlength="10" value="{{old('mobileNumber')}}" id="mobileNumber" type="text">
                             <button disabled id="sendOtp" type="button">Verify*</button>
                             @error('mobileNumber')
                               <div class="invalid-feedback">{{ $message }}</div>
