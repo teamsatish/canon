@@ -502,6 +502,16 @@ header {
 
 .MAC .personalform  input[type="text"] {font-family: 'Arial';}
 
+.MAC #resendOtp-button {
+    z-index: 99;
+    float: none;
+    height: 100px;
+}
+
+.MAC .stateinputwrap {
+    margin-top: 22px;
+}
+
 
 /* footer */
 footer {
@@ -602,6 +612,7 @@ footer .row {
     .mobileinput input, .mobileotp input {
         flex: 1;
     }
+    .bannerbtn a {margin: 1em 0 4em;}
 }
 
 .MAC .invalid-feedback {

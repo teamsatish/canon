@@ -284,6 +284,7 @@ header {
     border: 1px solid #000;
     margin-left: 2px;
     color: #fff;
+    cursor: pointer;
 }
 .stateinputwrap {
     display: flex;
@@ -403,6 +404,7 @@ header {
     border: 1px solid #000;
     color: #fff;
     letter-spacing: 5px;
+    cursor: pointer;
 }
 .tahnkyouwrap {
     width: 100%;
@@ -411,7 +413,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 50%;
+    top: 33%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -445,6 +447,7 @@ header {
     background-color: #e92227;
     border: 1px solid #000;
     color: #fff;
+    cursor: 'pointer';
     padding: 5px 1em;
 }
 /* end banner form */
@@ -534,11 +537,12 @@ footer .row {
 .footerbox p {
     font-size: 16px;
     margin: 0;
-    font-weight: 700;
-    font-family: 'Futura Hv BT';
+    font-weight: 400;
+    font-family: 'Gotham-Medium';
 }
 .footerbox p span {
-    font-family: 'Futura-regular';
+    font-family: 'Gotham-Medium';
+    font-weight: 300;
 }
 .footerbox ul {
     display: flex;
@@ -552,7 +556,18 @@ footer .row {
 .footerbox ul li a img {
     width: 33px;
 }
+.MAC .personalchbox label {
+    line-height: 20px;
+    display: inline-flex;
+}
 
+.personalchbox label a:hover {
+    color: #ea2228;
+}
+
+.MAC .personalchbox label a {
+    margin-left: 6px;
+}
 
 
 
