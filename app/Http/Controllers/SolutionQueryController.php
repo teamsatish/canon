@@ -46,10 +46,13 @@ class SolutionQueryController extends Controller
         'mobileNumber' => 'required|size:10',
         'otp' => 'required|size:5',
         'pincode' => 'required|size:6',
-        'city' => 'required|max:255',
+        'city' => 'required',
         // 'query' => 'required|min:10',
         'isAgreedTerms' => 'accepted',
-    ], ['isAgreedTerms.accepted' => 'Please accept the terms and conditions']);
+    ], [
+      'isAgreedTerms.accepted' => 'Please accept the terms and conditions',
+      'city.required' => 'Location field is required'
+    ]);
 
 
     foreach ($request->input('business') as $businessIndex => $business) {

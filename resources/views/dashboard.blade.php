@@ -30,7 +30,7 @@
             <th>Company Name</th>
             <th>Mobile Number</th>
             <th>Pincode</th>
-            <th>City</th>
+            <th>Location</th>
             <th>State</th>
             <th>Query</th>
             <th>Query date</th>
@@ -46,7 +46,7 @@
             <th>Company Name</th>
             <th>Mobile Number</th>
             <th>Pincode</th>
-            <th>City</th>
+            <th>Location</th>
             <th>State</th>
             <th>Query</th>
             <th>Query date</th>

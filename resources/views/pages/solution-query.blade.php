@@ -146,7 +146,7 @@
                         <div class="floatinglabel">
                             <input id="city" name="city" value="{{old('city')}}" class="form-control" type="text">
                             <span class="highlight"></span>
-                            <label class="floatplaceholder">City*</label>
+                            <label class="floatplaceholder">Location*</label>
                             @error('city')
                               <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
