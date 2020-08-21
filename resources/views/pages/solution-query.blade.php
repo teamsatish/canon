@@ -164,7 +164,7 @@
                             <input
                               name="isAgreedTerms"
                               @if(old('isAgreedTerms') === 'on') checked @endif
-                              type="checkbox"> I agree to the terms and conditions, <a href="{{ asset('pdf/Landing_page_TC__1_.pdf') }}" target="_blank">Read more</a>
+                              type="checkbox"> I agree to the terms and conditions, <a href="{{ asset('pdf/terms.pdf') }}" target="_blank">Read more</a>
                             <span class="personalcheck"></span>
                              @error('isAgreedTerms')
                               <div class="invalid-feedback">{{ $message }}</div>
